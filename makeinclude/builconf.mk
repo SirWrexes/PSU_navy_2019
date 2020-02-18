@@ -13,15 +13,12 @@ MKBUILDCONF := 1
 ############################################################################################
 INCDIRS := ./include
 INCDIRS += ./lib/libfox/extra/include
-INCDIRS += ./lib/libfox/extra/include-csfml
-INCDIRS += ./lib/libfox/extra/include-define
 # ---------------------------------------------------------------------------------------- #
 CFLAGS  := -std=gnu99
 CFLAGS  += -Werror
 CFLAGS  += -Wall -Wextra
 CFLAGS  += -Wdouble-promotion
 CFLAGS  += -Wno-implicit-fallthrough
-CFLAGS  += -fno-builtin
 CFLAGS  += -fdiagnostics-color=auto
 CFLAGS  += $(foreach dir, $(INCDIRS), -iquote $(dir))
 CFLAGS  += $(CUSTOM_CFLAGS)
