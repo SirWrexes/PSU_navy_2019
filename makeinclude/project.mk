@@ -29,14 +29,17 @@ CUSTOM_CFLAGS :=
 ################################################
 MAIN := ./src/main.c
 # -------------------------------------------- #
-SRC :=
+# -- Position data
+SRC := ./src/positions/pos_open.c
 SRC +=
 ################################################
 
 #
 # Test sources
 ################################################
-TST := ./tests/write_pos_data.c
+# -- Position data
+TST := ./tests/positions/pos_data_files.c
+TST += ./tests/positions/test_pos_open.c
 ################################################
 
 
