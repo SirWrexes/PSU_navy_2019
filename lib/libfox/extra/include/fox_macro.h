@@ -58,9 +58,9 @@
 // (originally in glibc's sys/cdefs.h)
 #ifndef __unlikely
     #if __GNUC__ >= 3
-        #define __unlikely(cond)	__builtin_expect((cond), 0)
+        #define __unlikely(cond)	__builtin_expect((!!(cond)), 0)
     #else
-        #define __unlikely(cond)	(cond)
+        #define __unlikely(cond)	(!!(cond))
     #endif
 #endif
 
@@ -68,9 +68,9 @@
 // (originally in glibc's sys/cdefs.h)
 #ifndef __likely
     #if __GNUC__ >= 3
-        #define __likely(cond)	__builtin_expect((cond), 1)
+        #define __likely(cond)	__builtin_expect(!!(cond), 1)
     #else
-        #define __likely(cond)	(cond)
+        #define __likely(cond)	(!!(cond))
     #endif
 #endif
 
