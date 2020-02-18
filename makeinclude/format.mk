@@ -8,6 +8,8 @@
 ifndef MKFORMAT
 MKFORMAT := 1
 
+$(info $(USER))
+
 ifneq "$(USER)" "bugs"
 # The autograder doesn't support coloured output.
 # Deactivate it when building from there.
