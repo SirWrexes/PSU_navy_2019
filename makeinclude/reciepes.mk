@@ -112,6 +112,12 @@ rm_test_files:
 	@$(ECHO$(BIN)) $(CRED)"Delete"$(CRESET)" test temp files"
 	@$(foreach tmp, $(TESTTMP), $(RM) $(tmp))
 # ------------------------------------------------------------------------------------- #
+WRAPFLAGS := $(shell grep -qR 'wrap_close.h' tests/ 2>/dev/null && echo -n "-Wl,--wrap=close")
+WRAPFLAGS += $(shell grep -qR 'wrap_malloc.h' tests/ 2>/dev/null && echo -n "-Wl,--wrap=malloc")
+WRAPFLAGS += $(shell grep -qR 'wrap_open.h' tests/ 2>/dev/null && echo -n "-Wl,--wrap=open")
+WRAPFLAGS += $(shell grep -qR 'wrap_read.h' tests/ 2>/dev/null && echo -n "-Wl,--wrap=read")
+WRAPFLAGS += $(shell grep -qR 'wrap_write.h' tests/ 2>/dev/null && echo -n "-Wl,--wrap=write")
+# ------------------------------------------------------------------------------------- #
 .PHONY: tests
 tests: test_report
 $(TESTBIN): TARGET          := $(TESTBIN)
