@@ -9,9 +9,12 @@
 #include <stdbool.h>
 
 #include "fox_define.h"
+#include "fox_io.h"
 
 __Anonnull bool pos_open(str2c_t path, int *fdp)
 {
     *fdp = open(path, O_RDONLY);
-    return __unlikely(*fdp == -1);
+    if (__unlikely(*fdp == -1))
+        return !!fox_perror(__func__);
+    return false;
 }
