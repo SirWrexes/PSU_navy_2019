@@ -16,6 +16,10 @@ define FOXAUTOCONFIG
 # Distributed under terms of the MIT license.
 #
 
+grep -qRE 'wrap_(close|malloc|open|read|write).h' \
+	src/ tests/ 								  \
+	&& echo -n "wrap_libc "
+
 grep -qRE 'fox_(list|stack|tree)\.h' \
 	src/ tests/                      \
 	&& echo -n "datastruct "
