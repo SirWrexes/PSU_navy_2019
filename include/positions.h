@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Untitled project
+** Navy
 ** File description:
-** positions.h -- No description
+** Position fetching and validation
 */
 
 #ifndef POSITIONS_H
@@ -19,11 +19,15 @@
 typedef char posbuff_t[4][8];
 
 // Try opening a map file.
+//
 // Returns true in case of error.
 bool pos_open(str2c_t path, int *fdp) __Anonnull;
 
 // Write the contents of a file in a char buffer
+//
 // Returns true in case of error.
+//   * Main error would be positions file containing too many characters.
+//   * Otherwise it's just about read errors.
 bool pos_read(int fd, posbuff_t buff) __Anonnull;
 
 // Check if positions are valid, meaning :
@@ -31,6 +35,7 @@ bool pos_read(int fd, posbuff_t buff) __Anonnull;
 //   * There are 4 ships, of size 2, 3, 4 and 5
 //   * Ship positions are in bounds
 //   * Ships do not cross each other
+//
 // Returns false and sets file offset to 0 on success
 // Returns true in case of error.
 bool pos_verif(posbuff_t buff);
