@@ -23,11 +23,10 @@ typedef char posbuff_t[4][8];
 // Returns true in case of error.
 bool pos_open(str2c_t path, int *fdp) __Anonnull;
 
-// Write the contents of a file in a char buffer
+// Write the contents of a pos file in a char buffer if it's valid, meaning :
+//   * File contains just the right amount of characters (4 * 8 ± 1);
 //
 // Returns true in case of error.
-//   * Main error would be positions file containing too many characters.
-//   * Otherwise it's just about read errors.
 bool pos_read(int fd, posbuff_t buff) __Anonnull;
 
 // Check if positions are valid, meaning :
