@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "sighan.h"
 
-bool send_sig(void)
+static bool send_sig(void)
 {
     if (kill(SIG_G.enemy_pid, SIGUSR1))
         return (true);
@@ -18,7 +18,7 @@ bool send_sig(void)
     return false;
 }
 
-void sig_catch(int sig, siginfo_t *siginfo, void *context)
+static void sig_catch(int sig, siginfo_t *siginfo, void *context)
 {
     (void) context;
     if (SIG_G.enemy_pid == 0)
@@ -31,7 +31,7 @@ void sig_catch(int sig, siginfo_t *siginfo, void *context)
         write(1, "sig receive\n", 12);
 }
 
-bool receive_sig(void)
+static bool receive_sig(void)
 {
     struct sigaction siga_s;
 
