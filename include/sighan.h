@@ -27,7 +27,7 @@ struct sighan_t {
     int *bin_pos;
     size_t index;
     pid_t enemy_pid;
-//    pid_t my_pid;
+    pid_t my_pid;
     bool error;
 } sighan_g;
 
