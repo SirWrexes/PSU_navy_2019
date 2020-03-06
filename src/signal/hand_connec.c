@@ -13,9 +13,7 @@ static bool send_sig(void)
 {
     if (kill(SIG_G.enemy_pid, SIGUSR1))
         return (true);
-    if (usleep(100))
-        return (true);
-    return false;
+    return (false);
 }
 
 static void sig_catch(int sig, siginfo_t *siginfo, void *context)
