@@ -39,6 +39,7 @@ SRC += ./src/map/map_create_from_file.c
 SRC += ./src/map/map_create_from_posbuff.c
 # -- Input/Output
 SRC += ./src/io/navy_err.c
+SRC += ./src/io/display_board.c
 ################################################
 
 #

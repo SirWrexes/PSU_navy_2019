@@ -10,6 +10,8 @@
 
 #include "fox_define.h"
 
+#include "map.h"
+
 // Error messages index
 enum navy_error {
     /* Print those on STDERR */
@@ -23,5 +25,7 @@ enum navy_error {
 };
 
 extern const str2c_t NAVY_ERR[E_CNT];
+
+__Anonnull void display_board(map_t map);
 
 #endif /* !IO_H */
