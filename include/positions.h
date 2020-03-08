@@ -12,6 +12,8 @@
 
 #include "fox_define.h"
 
+#define MAX_SHIPS
+
 // Lines shall be of the format defined by this regex :
 //   * [2-5]:[A-H][1-8]:[A-H][1-8] (and a null terminator)
 // Representing these values :
@@ -19,7 +21,7 @@
 typedef char posline_t[8];
 
 // A position buffer contains 4 lines
-typedef posline_t posbuff_t[4];
+typedef posline_t posbuff_t[MAX_SHIPS];
 
 // Try opening a map file.
 //
@@ -27,7 +29,7 @@ typedef posline_t posbuff_t[4];
 bool pos_open(str2c_t path, int *fdp) __Anonnull;
 
 // Write the contents of a pos file in a char buffer if it's valid, meaning :
-//   * File contains just the right amount of characters (4 * 8 ± 1);
+//   * File contains just the right amount of characters (MAX_SHIPS * 8 ± 1);
 //
 // Returns true in case of error.
 bool pos_read(int fd, posbuff_t buff) __Anonnull;

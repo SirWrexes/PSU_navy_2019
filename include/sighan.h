@@ -13,9 +13,6 @@
 #include <unistd.h>
 #include <signal.h>
 
-// sighan_g declared as non-constant global variable used in signal handling
-#define SIG_G sighan_g
-
 // Struct used to receive and store signal information
 // bin_pos contain non-converted binary position send by enemy
 // index is used to navigate in bin_pos without having to re-initialize and
@@ -29,6 +26,6 @@ struct sighan_t {
     pid_t enemy_pid;
     pid_t my_pid;
     bool error;
-} sighan_g;
+} SIG_G;
 
 #endif /* !SIGHAN_H */
