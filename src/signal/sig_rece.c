@@ -7,6 +7,7 @@
 
 #include <signal.h>
 #include <unistd.h>
+
 #include "sighan.h"
 
 static int bin_to_dec(int *bin)

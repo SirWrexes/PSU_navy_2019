@@ -5,8 +5,8 @@
 ** player_info.h -- No description
 */
 
-#ifndef PLAYER_INFO_H
-#define PLAYER_INFO_H
+#ifndef GAME_H
+#define GAME_H
 
 #include <sys/types.h>
 
@@ -17,9 +17,18 @@
 #define PLAYER_PCS_BASE (2 + 3 + 4 + 5)
 
 typedef struct {
-    pid_t pid;
     hcount_t pieces;
     map_t board;
 } player_t;
 
-#endif /* !PLAYER_INFO_H */
+typedef enum {
+    NAVY_RUNNING = -1,
+    NAVY_WON = 0,
+    NAVY_LOST = 1,
+} status_t;
+
+typedef void (*turn_t)(player_t *me, player_t *them);
+
+extern const turn_t PLAYER_TURN[2];
+
+#endif /* !GAME_H */

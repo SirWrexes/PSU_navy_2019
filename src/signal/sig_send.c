@@ -16,6 +16,8 @@ bool sending(void)
             return (true);
         else if (SIG_G.bin_pos[i] == 1 && kill(SIG_G.enemy_pid, SIGUSR1))
             return (true);
+        if (usleep(4000))
+            return true;
     }
     return (false);
 }

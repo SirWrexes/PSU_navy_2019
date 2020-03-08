@@ -21,11 +21,16 @@
 // my_pid is the current process/player pid
 // error is used for error handling in fuction that cannot return value
 struct sighan_t {
-    int *bin_pos;
+    int bin_pos[9];
     size_t index;
     pid_t enemy_pid;
     pid_t my_pid;
     bool error;
+    enum {HOST, CLIENT} whoami;
 } SIG_G;
+
+bool create_connection(void);
+int signal_reception(void);
+bool sending(void);
 
 #endif /* !SIGHAN_H */

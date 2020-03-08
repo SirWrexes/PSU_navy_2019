@@ -7,6 +7,10 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+
+#include "fox_define.h"
+#include "fox_io.h"
+
 #include "sighan.h"
 
 static bool send_sig(void)
@@ -16,7 +20,8 @@ static bool send_sig(void)
     return (false);
 }
 
-static void sig_catch(int sig, siginfo_t *siginfo, void *context)
+static void sig_catch(
+    __Aunused int sig, siginfo_t *siginfo, __Aunused void *context)
 {
     (void) context;
     if (SIG_G.enemy_pid == 0)
@@ -41,16 +46,20 @@ static bool receive_sig(void)
 
 bool create_connection(void)
 {
-    if (SIG_G.enemy_pid) {
+    fox_printf("my_pid: %u\n", SIG_G.my_pid);
+    if (SIG_G.whoami == CLIENT) {
         if (send_sig())
             return (true);
         else if (receive_sig())
             return (true);
+        fox_printf("successfully connected\n");
     } else {
+        fox_printf("waiting for enemy connection...\n");
         if (receive_sig())
             return (true);
         else if (send_sig())
             return (true);
+        fox_printf("\nenemy connected\n");
     }
     return (SIG_G.error);
 }

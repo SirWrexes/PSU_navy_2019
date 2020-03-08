@@ -11,6 +11,7 @@
 #include "fox_define.h"
 
 #include "map.h"
+#include "game.h"
 
 // Error messages index
 enum navy_error {
@@ -26,6 +27,7 @@ enum navy_error {
 
 extern const str2c_t NAVY_ERR[E_CNT];
 
-__Anonnull void display_board(map_t map);
+void display_board(map_t map) __Anonnull;
+void display_current_boards(player_t *me, player_t *them) __Anonnull;
 
 #endif /* !IO_H */
