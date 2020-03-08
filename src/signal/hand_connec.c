@@ -23,10 +23,6 @@ static void sig_catch(int sig, siginfo_t *siginfo, void *context)
         SIG_G.enemy_pid = siginfo->si_pid;
     else if (SIG_G.enemy_pid != siginfo->si_pid)
         SIG_G.error = true;
-    if (sig == SIGUSR1)
-        write(1, "sig receive\n", 12);
-    else if (sig == SIGUSR2)
-        write(1, "sig receive\n", 12);
 }
 
 static bool receive_sig(void)
