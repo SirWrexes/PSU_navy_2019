@@ -21,8 +21,5 @@ __Anonnull bool map_create_from_file(map_t map, str2c_t path)
         return !!fox_eprintf("Error openning %s.\n", path);
     if (pos_read(fd, buff))
         return !!fox_eprintf("Error reading %s.\n", path);
-    if (pos_verif(buff))
-        return !!fox_eprintf("%s contains invalid position data.\n", path);
-    fox_memset(map, '.', sizeof(map_t));
-
+    return map_create_from_posbuff(map, buff);
 }

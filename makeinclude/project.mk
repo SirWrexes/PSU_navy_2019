@@ -33,6 +33,10 @@ MAIN := ./src/main.c
 SRC := ./src/positions/pos_open.c
 SRC += ./src/positions/pos_read.c
 SRC += ./src/positions/pos_verif_line.c
+# -- Map init
+SRC += ./src/map/map_init_empty.c
+SRC += ./src/map/map_create_from_file.c
+SRC += ./src/map/map_create_from_posbuff.c
 # -- Input/Output
 SRC += ./src/io/navy_err.c
 ################################################
