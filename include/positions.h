@@ -12,7 +12,7 @@
 
 #include "fox_define.h"
 
-#define MAX_SHIPS
+#define MAX_SHIPS (4)
 
 // Lines shall be of the format defined by this regex :
 //   * [2-5]:[A-H][1-8]:[A-H][1-8] (and a null terminator)

@@ -24,7 +24,7 @@ static bool y_is_valid(char y)
     return (y >= '1' && y <= '8');
 }
 
-static void turn_offense(player_t *me, player_t *them)
+static void turn_offense(player_t __Aunused *me, player_t __Aunused *them)
 {
     size_t len = 0;
     __smart str_t line = NULL;
@@ -39,7 +39,7 @@ static void turn_offense(player_t *me, player_t *them)
     }
 }
 
-static void turn_defense(player_t *me, player_t *them)
+static void turn_defense(player_t __Aunused *me, player_t __Aunused *them)
 {
     fox_printf("waiting for enemy’s attack...\n");
 }

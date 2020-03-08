@@ -40,6 +40,11 @@ SRC += ./src/map/map_create_from_posbuff.c
 # -- Input/Output
 SRC += ./src/io/navy_err.c
 SRC += ./src/io/display_board.c
+SRC += ./src/io/display_current_boards.c
+SRC += ./src/game/player_turn.c
+SRC += ./src/signal/hand_connec.c
+SRC += ./src/signal/sig_rece.c
+SRC += ./src/signal/sig_send.c
 ################################################
 
 #

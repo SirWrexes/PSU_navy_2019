@@ -25,6 +25,7 @@ __Anonnull static int navy_run(player_t *me, player_t *them)
         display_current_boards(me, them);
         PLAYER_TURN[SIG_G.whoami](me, them);
         PLAYER_TURN[!SIG_G.whoami](me, them);
+        s = 0;
     }
     fox_printf("%s won\n", (s == NAVY_WON) ? "I" : "Enemy");
     return s;
@@ -35,9 +36,6 @@ int main(int ac, str_t *av)
     player_t me = {.pieces = PLAYER_PCS_BASE};
     player_t them = {.pieces = PLAYER_PCS_BASE};
 
-    if (map_create_from_file(me.board, av[ac - 1]))
-        return EPITECH_ERROR;
-    map_init_empty(them.board);
     SIG_G.my_pid = getpid();
     if (ac == 2) {
         SIG_G.enemy_pid = 0;
@@ -49,6 +47,9 @@ int main(int ac, str_t *av)
         SIG_G.enemy_pid = fox_strtol(av[1], NULL);
     } else
         return EPITECH_ERROR | !fox_eprintf("Invalid argument count\n");
+    if (map_create_from_file(me.board, av[ac - 1]))
+        return EPITECH_ERROR;
+    map_init_empty(them.board);
     if (create_connection())
         return EPITECH_ERROR | !fox_eprintf("Error during connection.\n");
     return navy_run(&me, &them);
