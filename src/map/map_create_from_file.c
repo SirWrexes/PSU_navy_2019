@@ -14,7 +14,7 @@
 
 __Anonnull bool map_create_from_file(map_t map, str2c_t path)
 {
-    int fd;
+    __close int fd;
     posbuff_t buff = {0};
 
     if (pos_open(path, &fd))

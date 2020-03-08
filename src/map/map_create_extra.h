@@ -22,8 +22,8 @@ __Aconst static inline bool *ship_is_set(char len)
 __Aconst static inline char *tile(map_t map, hindex_t step, posline_t ln)
 {
     enum { V = true, H = false } direction = (ln[2] == ln[5]);
-    hindex_t x = ln[2] - 'A' + (step * (direction == H)) - 1;
-    hindex_t y = ln[3] - '0' + (step * (direction == V)) - 1;
+    hindex_t x = ln[2] - 'A' + (step * (direction == H));
+    hindex_t y = ln[3] - '1' + (step * (direction == V));
 
     return &(map[y][x]);
 }
