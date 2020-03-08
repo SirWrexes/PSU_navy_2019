@@ -65,7 +65,7 @@ static const posref_t POS_OUTOFBOUNDS = {
     "2:C1:C2\n"
     "3:D4:F4\n"
     "4:B5:B8\n"
-    "5:D8:H8\n",
+    "5:D9:H9\n",
 };
 
 const posref_t *POS_VALID = &POS_OK;
